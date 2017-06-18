@@ -1,0 +1,123 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36A8159A-6E06-471C-9AC4-D6097BDD15B7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeSampleApplication</RootNamespace>
+    <AssemblyName>CodeSampleApplication</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\CommonLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BOList\AddressBusiness.List.cs" />
+    <Compile Include="BOList\ContactBusiness.List.cs" />
+    <Compile Include="BOList\PersonBusiness.List.cs" />
+    <Compile Include="BOList\Person_AddressBusiness.List.cs" />
+    <Compile Include="BOList\Person_ContactBusiness.List.cs" />
+    <Compile Include="BOList\PurposeBusiness.List.cs" />
+    <Compile Include="BO\BaseBO\AddressBusiness.cs" />
+    <Compile Include="BO\BaseBO\ContactBusiness.cs" />
+    <Compile Include="BO\Customer.cs" />
+    <Compile Include="BO\BaseBO\PersonBusiness.cs" />
+    <Compile Include="BO\BaseBO\Person_AddressBusiness.cs" />
+    <Compile Include="BO\BaseBO\Person_ContactBusiness.cs" />
+    <Compile Include="BO\BaseBO\PurposeBusiness.cs" />
+    <Compile Include="BO\CustomerController.cs" />
+    <Compile Include="BO\CustomerManager.cs" />
+    <Compile Include="DAOController\CustomerDAOController.cs" />
+    <Compile Include="DTOList\AddressList.cs" />
+    <Compile Include="DTOList\ContactList.cs" />
+    <Compile Include="DTOList\PersonList.cs" />
+    <Compile Include="DTOList\Person_AddressList.cs" />
+    <Compile Include="DTOList\Person_ContactList.cs" />
+    <Compile Include="DTOList\PurposeList.cs" />
+    <Compile Include="DTO\AddressData.cs" />
+    <Compile Include="DTO\ContactData.cs" />
+    <Compile Include="DTO\PersonData.cs" />
+    <Compile Include="DTO\Person_AddressData.cs" />
+    <Compile Include="DTO\Person_ContactData.cs" />
+    <Compile Include="DTO\PurposeData.cs" />
+    <Compile Include="TestHarness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestHarness.Designer.cs">
+      <DependentUpon>TestHarness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="TestHarness.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TestHarness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Library\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

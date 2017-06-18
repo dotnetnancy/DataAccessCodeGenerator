@@ -1,0 +1,95 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A38E9BA9-C7D8-444D-93D4-B714CD893210}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SprocDataLayerGenerator</RootNamespace>
+    <AssemblyName>SprocDataLayerGenerator</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessObjects\DataLayerGenerator.cs" />
+    <Compile Include="BusinessObjects\MetaInformationSchemaManager.cs" />
+    <Compile Include="Constants\MetaSqlOrSprocDependencyConstants.cs" />
+    <Compile Include="Data\Lists\MetaSqlDependencyList.cs" />
+    <Compile Include="Data\Mappings\InformationSchemaColumnColumnMappings.cs" />
+    <Compile Include="Data\Mappings\InformationSchemaConstraintColumnUsageColumnMappings.cs" />
+    <Compile Include="Data\Dtos\InformationSchemaConstraintColumnUsageData.cs" />
+    <Compile Include="Data\Lists\InformationSchemaConstraintColumnUsageList.cs" />
+    <Compile Include="Data\Mappings\InformationSchemaConstraintColumnUsagePropertyMappings.cs" />
+    <Compile Include="Data\Mappings\InformationSchemaTableColumnMappings.cs" />
+    <Compile Include="Data\Dtos\InformationSchemaColumnData.cs" />
+    <Compile Include="Data\Lists\InformationSchemaColumnList.cs" />
+    <Compile Include="Data\Mappings\InformationSchemaColumnPropertyMappings.cs" />
+    <Compile Include="Data\Mappings\InformationSchemaTableConstraintColumnMappings.cs" />
+    <Compile Include="Data\Lists\InformationSchemaTableConstraintList.cs" />
+    <Compile Include="Data\Mappings\InformationSchemaTableConstraintPropertyMappings.cs" />
+    <Compile Include="Data\Lists\InformationSchemaTableList.cs" />
+    <Compile Include="Data\Dtos\InformationSchemaTableConstraintData.cs" />
+    <Compile Include="Data\Dtos\InformationSchemaTableData.cs" />
+    <Compile Include="Data\Mappings\InformationSchemaTablePropertyMappings.cs" />
+    <Compile Include="Data\Mappings\InformationSchemaTableSprocMappings.cs" />
+    <Compile Include="Constants\InformationSchemaSprocConstants.cs" />
+    <Compile Include="Data\MetaInformationSchema.cs" />
+    <Compile Include="Data\MetaSprocSqlDependencies.cs" />
+    <Compile Include="BusinessObjects\MetaSprocSqlDependencyManager.cs" />
+    <Compile Include="Data\MetaSqlDependency.cs" />
+    <Compile Include="HelperAndUtility\PredicateFunctions.cs" />
+    <Compile Include="Data\Accessors\SprocDataLayerGeneratorDataAccess.cs" />
+    <Compile Include="BusinessObjects\SprocGenerator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Constants\TableConstraintTypesConstants.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{038809F3-5C83-4185-AE08-79FE2C2F31C2}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

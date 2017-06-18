@@ -1,0 +1,79 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{038809F3-5C83-4185-AE08-79FE2C2F31C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonLibrary</RootNamespace>
+    <AssemblyName>CommonLibrary</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Business\BaseBusiness.cs" />
+    <Compile Include="Base\Database\BaseDataAccess.cs" />
+    <Compile Include="Base\Database\BaseDatabase.cs" />
+    <Compile Include="Constants\ClassCreationConstants.cs" />
+    <Compile Include="Constants\CSharpDataTypeConstants.cs" />
+    <Compile Include="Constants\SqlConstants.cs" />
+    <Compile Include="Constants\SqlDbConstants.cs" />
+    <Compile Include="CustomAttributes\DatabaseColumnAttribute.cs" />
+    <Compile Include="CustomAttributes\ForeignKeyAttribute.cs" />
+    <Compile Include="CustomAttributes\InputSprocParameterAttribute.cs" />
+    <Compile Include="CustomAttributes\PrimaryKeyAttribute.cs" />
+    <Compile Include="CustomAttributes\ResolveNullValueType.cs" />
+    <Compile Include="CustomAttributes\SelectAttribute.cs" />
+    <Compile Include="CustomAttributes\TableNameAttribute.cs" />
+    <Compile Include="CustomAttributes\UniqueAttribute.cs" />
+    <Compile Include="CustomAttributes\UpdateAttribute.cs" />
+    <Compile Include="Enumerations\CrudState.cs" />
+    <Compile Include="Enumerations\GetPermutations.cs" />
+    <Compile Include="Exceptions\BeginTransactionException.cs" />
+    <Compile Include="Predicates\BaseDatabasePredicateFunctions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DatabaseSmoOjbectsAndSettings.cs" />
+    <Compile Include="Utility\ClassCreationHelperMethods.cs" />
+    <Compile Include="Utility\DatabaseHelperMethods.cs" />
+    <Compile Include="Utility\GenericListFiltering.cs" />
+    <Compile Include="Utility\GenericListSort.cs" />
+    <Compile Include="Utility\StringManipulation.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
